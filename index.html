@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allwin Infotech - Product Downloads</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe8ec 100%);
+            color: #2d2d2d;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #c41e3a 0%, #e63946 50%, #d62828 100%);
+            color: white;
+            padding: 25px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 32px rgba(196, 30, 58, 0.25);
+        }
+
+        .header-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .logo-text h1 {
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 11px;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info a:hover {
+            opacity: 1;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #c41e3a;
+            margin-bottom: 50px;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(196, 30, 58, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(196, 30, 58, 0.2);
+        }
+
+        .product-header {
+            background: linear-gradient(135deg, #c41e3a 0%, #e63946 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .product-name {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .product-body {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .product-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #c41e3a;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .product-footer {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .badge-available {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge-coming {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #c41e3a 0%, #e63946 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(196, 30, 58, 0.3);
+        }
+
+        .download-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: scale(1);
+        }
+
+        .coming-soon-btn {
+            background: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .coming-soon-btn:hover {
+            transform: scale(1);
+        }
+
+        /* Footer */
+        footer {
+            background: #2d2d2d;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: #c41e3a;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #bbb;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #c41e3a;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-wrapper">
+            <div class="logo-section">
+                <div class="logo-icon">📦</div>
+                <div class="logo-text">
+                    <h1>Allwin Infotech</h1>
+                    <p>Software Solutions</p>
+                </div>
+            </div>
+            <div class="contact-info">
+                <a href="mailto:support@allwininfotech.in">📧 support@allwininfotech.in</a>
+                <a href="https://www.allwininfotech.in" target="_blank">🌐 www.allwininfotech.in</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Our Products</h2>
+
+        <div class="products-grid">
+            <!-- Product 1: Survey Management System -->
+            <div class="product-card">
+                <div class="product-header">
+                    <div class="product-icon">📋</div>
+                    <div class="product-name">Survey Management System</div>
+                </div>
+                <div class="product-body">
+                    <p class="product-description">
+                        A comprehensive system for creating, managing, and analyzing surveys with powerful analytics and reporting capabilities.
+                    </p>
+                    <ul class="features">
+                        <li>Easy survey creation</li>
+                        <li>Real-time analytics</li>
+                        <li>Custom reports</li>
+                        <li>Data export options</li>
+                    </ul>
+                </div>
+                <div class="product-footer">
+                    <div class="status-badge badge-coming">Coming Soon</div>
+                    <button class="download-btn coming-soon-btn" disabled>Coming Soon</button>
+                </div>
+            </div>
+
+            <!-- Product 2: A4 Photo Arranger -->
+            <div class="product-card">
+                <div class="product-header">
+                    <div class="product-icon">🖼️</div>
+                    <div class="product-name">A4 Photo Arranger</div>
+                </div>
+                <div class="product-body">
+                    <p class="product-description">
+                        Arrange and organize your photos on A4 pages with professional layouts. Perfect for printing photo albums and collections.
+                    </p>
+                    <ul class="features">
+                        <li>Multiple layout options</li>
+                        <li>High-quality printing</li>
+                        <li>Batch processing</li>
+                        <li>Easy customization</li>
+                    </ul>
+                </div>
+                <div class="product-footer">
+                    <div class="status-badge badge-available">Available Now</div>
+                    <a href="https://drive.google.com/uc?export=download&id=1b7hkUY7GiOnBe9ax2Od6GvfTIFqRK4U2" class="download-btn">Download (50 MB)</a>
+                </div>
+            </div>
+
+            <!-- Product 3: Photo Date Stamper -->
+            <div class="product-card">
+                <div class="product-header">
+                    <div class="product-icon">📷</div>
+                    <div class="product-name">Photo Date Stamper</div>
+                </div>
+                <div class="product-body">
+                    <p class="product-description">
+                        Add date stamps to your photos automatically. Preserve memory with date and time information on your pictures.
+                    </p>
+                    <ul class="features">
+                        <li>Automatic date stamping</li>
+                        <li>Customizable format</li>
+                        <li>Batch operations</li>
+                        <li>Watermark support</li>
+                    </ul>
+                </div>
+                <div class="product-footer">
+                    <div class="status-badge badge-coming">Coming Soon</div>
+                    <button class="download-btn coming-soon-btn" disabled>Coming Soon</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Allwin Infotech provides innovative software solutions for business and personal use.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📧 Email: <a href="mailto:support@allwininfotech.in">support@allwininfotech.in</a></p>
+                <p>🌐 Website: <a href="https://www.allwininfotech.in" target="_blank">www.allwininfotech.in</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Products</h3>
+                <p><a href="#survey">Survey Management System</a></p>
+                <p><a href="#arranger">A4 Photo Arranger</a></p>
+                <p><a href="#stamper">Photo Date Stamper</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
