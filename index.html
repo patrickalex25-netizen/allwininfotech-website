@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allwin Infotech - Product Downloads</title>
+    <title>Allwin InfoTech - Cherry Collection</title>
     <style>
         * {
             margin: 0;
@@ -13,16 +13,32 @@
 
         body {
             font-family: 'Poppins', 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #fff5f7 0%, #ffe8ec 100%);
+            background: #fff5f7;
             color: #2d2d2d;
             overflow-x: hidden;
+        }
+
+        /* Background Decoration */
+        .background-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+        }
+
+        .background-pattern svg {
+            width: 100%;
+            height: 100%;
         }
 
         /* Header */
         header {
             background: linear-gradient(135deg, #c41e3a 0%, #e63946 50%, #d62828 100%);
             color: white;
-            padding: 25px 0;
+            padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -59,361 +75,738 @@
             border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
-        .logo-text h1 {
+        .logo-text h2 {
             font-size: 26px;
             font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         .logo-text p {
             font-size: 11px;
             opacity: 0.9;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .contact-info {
+        .header-contact {
             display: flex;
-            gap: 20px;
-            font-size: 13px;
+            gap: 25px;
+            align-items: center;
         }
 
-        .contact-info a {
+        .contact-link {
             color: white;
             text-decoration: none;
-            opacity: 0.9;
-            transition: opacity 0.3s;
+            font-size: 14px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
         }
 
-        .contact-info a:hover {
-            opacity: 1;
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #c41e3a 0%, #e63946 50%, #d62828 100%);
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 10px;
+            opacity: 0.95;
+        }
+
+        .hero-subtitle {
+            font-size: 15px;
+            opacity: 0.85;
+            font-style: italic;
         }
 
         /* Main Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 50px 20px;
+            padding: 80px 20px;
         }
 
-        h2 {
+        /* Section Header */
+        .section-header {
             text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-header h2 {
+            font-size: 48px;
+            font-weight: 800;
             color: #c41e3a;
-            margin-bottom: 50px;
-            font-size: 36px;
-            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #c41e3a, #e63946);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: #666;
+            max-width: 600px;
+            margin: 30px auto 0;
+            line-height: 1.6;
         }
 
         /* Products Grid */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
         }
 
         .product-card {
             background: white;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(196, 30, 58, 0.1);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 8px 24px rgba(196, 30, 58, 0.12);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            animation: slideInUp 0.6s ease-out forwards;
+            opacity: 0;
         }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.3s; }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(196, 30, 58, 0.2);
+            transform: translateY(-12px);
+            box-shadow: 0 16px 40px rgba(196, 30, 58, 0.2);
         }
 
-        .product-header {
-            background: linear-gradient(135deg, #c41e3a 0%, #e63946 100%);
-            color: white;
-            padding: 20px;
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #c41e3a, #e63946);
+            z-index: 1;
+        }
+
+        .product-top {
+            background: linear-gradient(135deg, #fff5f7, #ffe8ec);
+            padding: 45px 35px 35px;
             text-align: center;
+            position: relative;
         }
 
         .product-icon {
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
-
-        .product-name {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .product-body {
-            padding: 20px;
-            flex-grow: 1;
-        }
-
-        .product-description {
-            font-size: 14px;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 15px;
-        }
-
-        .features {
-            list-style: none;
+            font-size: 60px;
             margin-bottom: 20px;
-        }
-
-        .features li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-            font-size: 13px;
-            color: #666;
-        }
-
-        .features li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #c41e3a;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .product-footer {
-            padding: 20px;
-            border-top: 1px solid #eee;
-            text-align: center;
-        }
-
-        .status-badge {
             display: inline-block;
-            padding: 8px 16px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .product-card:nth-child(1) .product-icon { animation-delay: 0s; }
+        .product-card:nth-child(2) .product-icon { animation-delay: 0.3s; }
+        .product-card:nth-child(3) .product-icon { animation-delay: 0.6s; }
+
+        .product-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #c41e3a;
+            margin-bottom: 12px;
+        }
+
+        .product-badge {
+            display: inline-block;
+            padding: 8px 18px;
             border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 15px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .badge-available {
-            background: #d4edda;
-            color: #155724;
+            background: linear-gradient(135deg, #c41e3a, #e63946);
+            color: white;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
         }
 
         .badge-coming {
             background: #fff3cd;
             color: #856404;
+            border: 2px solid #ffc107;
         }
 
-        .download-btn {
-            background: linear-gradient(135deg, #c41e3a 0%, #e63946 100%);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
+        .product-content {
+            padding: 35px;
+        }
+
+        .product-description {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            min-height: 70px;
+        }
+
+        .product-features {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             font-size: 14px;
-            font-weight: 600;
+            color: #666;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #c41e3a, #e63946);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .product-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
+            display: block;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, #c41e3a, #e63946);
+            color: white;
+            box-shadow: 0 6px 20px rgba(196, 30, 58, 0.3);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.4);
+        }
+
+        .btn-download:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-coming {
+            background: #f5f5f5;
+            color: #999;
+            border: 2px solid #e0e0e0;
+            cursor: not-allowed;
+        }
+
+        .btn-coming:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe8ec 100%);
+            padding: 80px 20px;
+            border-radius: 20px;
+            margin: 80px 0;
+        }
+
+        .features-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+        }
+
+        .why-feature {
+            text-align: center;
+        }
+
+        .why-feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
             display: inline-block;
         }
 
-        .download-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(196, 30, 58, 0.3);
+        .why-feature h3 {
+            font-size: 20px;
+            color: #c41e3a;
+            margin-bottom: 12px;
+            font-weight: 700;
         }
 
-        .download-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: scale(1);
+        .why-feature p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 14px;
         }
 
-        .coming-soon-btn {
-            background: #ccc;
-            cursor: not-allowed;
-            opacity: 0.6;
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #c41e3a 0%, #e63946 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 20px;
+            margin: 80px 0;
         }
 
-        .coming-soon-btn:hover {
-            transform: scale(1);
+        .cta-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .cta-text {
+            font-size: 16px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Footer */
         footer {
             background: #2d2d2d;
             color: white;
-            padding: 40px 20px;
-            margin-top: 50px;
+            padding: 60px 20px;
         }
 
-        .footer-content {
+        .footer-wrapper {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 50px;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .footer-section h3 {
-            margin-bottom: 15px;
-            color: #c41e3a;
+        .footer-col h4 {
+            color: #e63946;
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 700;
         }
 
-        .footer-section p,
-        .footer-section a {
-            font-size: 13px;
+        .footer-col p {
+            font-size: 14px;
             line-height: 1.8;
             color: #bbb;
-            text-decoration: none;
         }
 
-        .footer-section a:hover {
-            color: #c41e3a;
+        .footer-col a {
+            color: #e63946;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 13px;
+            color: #888;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .section-header h2 {
+                font-size: 32px;
+            }
+
             .header-wrapper {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
             }
 
-            .contact-info {
+            .header-contact {
                 flex-direction: column;
-                gap: 10px;
-            }
-
-            h2 {
-                font-size: 28px;
+                width: 100%;
             }
 
             .products-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cta-title {
+                font-size: 28px;
+            }
+
+            .logo-text h2 {
+                font-size: 22px;
+            }
+        }
+
+        /* Scroll Animation */
+        .scroll-appear {
+            opacity: 0;
+            animation: fadeInScroll 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInScroll {
+            to {
+                opacity: 1;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Background Pattern -->
+    <div class="background-pattern">
+        <svg viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="200" cy="200" r="150" fill="currentColor"/>
+            <circle cx="1000" cy="1000" r="200" fill="currentColor"/>
+            <path d="M 0 600 Q 300 400 600 600 T 1200 600" stroke="currentColor" fill="none"/>
+        </svg>
+    </div>
+
+    <!-- Header -->
     <header>
         <div class="header-wrapper">
             <div class="logo-section">
-                <div class="logo-icon">📦</div>
+                <div class="logo-icon">💼</div>
                 <div class="logo-text">
-                    <h1>Allwin Infotech</h1>
-                    <p>Software Solutions</p>
+                    <h2>Allwin InfoTech</h2>
+                    <p>Smart Solutions</p>
                 </div>
             </div>
-            <div class="contact-info">
-                <a href="mailto:support@allwininfotech.in">📧 support@allwininfotech.in</a>
-                <a href="https://www.allwininfotech.in" target="_blank">🌐 www.allwininfotech.in</a>
+            <div class="header-contact">
+                <a href="mailto:support@allwininfotech.in" class="contact-link">
+                    📧 support@allwininfotech.in
+                </a>
+                <a href="http://www.allwininfotech.in" target="_blank" class="contact-link">
+                    🌐 www.allwininfotech.in
+                </a>
             </div>
         </div>
     </header>
 
-    <div class="container">
-        <h2>Professional Software for Every Need</h2>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🎯 Premium Software Collection</div>
+            <h1>Elevate Your Productivity</h1>
+            <p>Discover our carefully crafted software solutions designed to streamline your workflow</p>
+            <p class="hero-subtitle">From surveys to photo management - we have the perfect tool for you</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="container">
+        <div class="section-header">
+            <h2>Our Premium Products</h2>
+            <p>Innovative solutions engineered with precision and designed for excellence. Choose the tools that work best for your needs.</p>
+        </div>
 
         <div class="products-grid">
             <!-- Product 1: Survey Management System -->
             <div class="product-card">
-                <div class="product-header">
+                <div class="product-top">
                     <div class="product-icon">📋</div>
-                    <div class="product-name">Survey Management System</div>
+                    <h3 class="product-title">Survey Management</h3>
+                    <span class="product-badge badge-coming">Coming Soon</span>
                 </div>
-                <div class="product-body">
+                <div class="product-content">
                     <p class="product-description">
-                        A comprehensive system for creating, managing, and analyzing surveys with powerful analytics and reporting capabilities.
+                        Comprehensive platform for creating, distributing, and analyzing surveys with real-time analytics and advanced insights.
                     </p>
-                    <ul class="features">
-                        <li>Easy survey creation</li>
-                        <li>Real-time analytics</li>
-                        <li>Custom reports</li>
-                        <li>Data export options</li>
-                    </ul>
-                </div>
-                <div class="product-footer">
-                    <div class="status-badge badge-coming">Coming Soon</div>
-                    <button class="download-btn coming-soon-btn" disabled>Coming Soon</button>
+                    <div class="product-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <span>Advanced Survey Builder</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <span>Real-time Analytics</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <span>Multi-channel Distribution</span>
+                        </div>
+                    </div>
+                    <button class="product-btn btn-coming" disabled>Coming Soon</button>
                 </div>
             </div>
 
             <!-- Product 2: A4 Photo Arranger -->
             <div class="product-card">
-                <div class="product-header">
+                <div class="product-top">
                     <div class="product-icon">🖼️</div>
-                    <div class="product-name">A4 Photo Arranger</div>
+                    <h3 class="product-title">A4 Photo Arranger</h3>
+                    <span class="product-badge badge-available">Available Now</span>
                 </div>
-                <div class="product-body">
+                <div class="product-content">
                     <p class="product-description">
-                        Arrange and organize your photos on A4 pages with professional layouts. Perfect for printing photo albums and collections.
+                        Professional photo arrangement tool for creating stunning A4-sized collages with intuitive controls and templates.
                     </p>
-                    <ul class="features">
-                        <li>Multiple layout options</li>
-                        <li>High-quality printing</li>
-                        <li>Batch processing</li>
-                        <li>Easy customization</li>
-                    </ul>
-                </div>
-                <div class="product-footer">
-                    <div class="status-badge badge-available">Available</div>
-                    <button onclick="startDownload()" class="download-btn">⬇️ Download Now</button>
+                    <div class="product-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <span>Drag & Drop Interface</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <span>Premium Templates</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <span>High-Quality Export</span>
+                        </div>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1I1YVrrhDgIDTnPRe3AaatKKbJp6FSjb3/view?usp=sharing" target="_blank" class="product-btn btn-download">⬇️ Download Now</a>
                 </div>
             </div>
 
             <!-- Product 3: Photo Date Stamper -->
             <div class="product-card">
-                <div class="product-header">
-                    <div class="product-icon">📷</div>
-                    <div class="product-name">Photo Date Stamper</div>
+                <div class="product-top">
+                    <div class="product-icon">📸</div>
+                    <h3 class="product-title">Photo Date Stamper</h3>
+                    <span class="product-badge badge-coming">Coming Soon</span>
                 </div>
-                <div class="product-body">
+                <div class="product-content">
                     <p class="product-description">
-                        Add date stamps to your photos automatically. Preserve memory with date and time information on your pictures.
+                        Intelligent utility to add date stamps to photos with customizable formats, positions, and style options.
                     </p>
-                    <ul class="features">
-                        <li>Automatic date stamping</li>
-                        <li>Customizable format</li>
-                        <li>Batch operations</li>
-                        <li>Watermark support</li>
-                    </ul>
-                </div>
-                <div class="product-footer">
-                    <div class="status-badge badge-coming">Coming Soon</div>
-                    <button class="download-btn coming-soon-btn" disabled>Coming Soon</button>
+                    <div class="product-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <span>Batch Processing</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <span>Custom Date Formats</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <span>Style Customization</span>
+                        </div>
+                    </div>
+                    <button class="product-btn btn-coming" disabled>Coming Soon</button>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
+    <!-- Why Choose Section -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Us</h2>
+                <p>We're committed to delivering the best software experience</p>
+            </div>
+            <div class="features-container">
+                <div class="why-feature">
+                    <div class="why-feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Optimized performance that delivers results instantly without compromising on quality or stability.</p>
+                </div>
+                <div class="why-feature">
+                    <div class="why-feature-icon">🛡️</div>
+                    <h3>Secure & Reliable</h3>
+                    <p>Enterprise-grade security ensures your data is protected with the highest standards of privacy.</p>
+                </div>
+                <div class="why-feature">
+                    <div class="why-feature-icon">👥</div>
+                    <h3>Expert Support</h3>
+                    <p>Dedicated support team ready to help you maximize the value of our software solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="container">
+        <div class="cta-section">
+            <h2 class="cta-title">Ready to Get Started?</h2>
+            <p class="cta-text">Download A4 Photo Arranger today and experience professional-grade photo management. Other products coming very soon!</p>
+            <a href="https://drive.google.com/file/d/1I1YVrrhDgIDTnPRe3AaatKKbJp6FSjb3/view?usp=sharing" target="_blank" class="product-btn btn-download" style="width: auto; display: inline-block; padding: 16px 40px;">🚀 Download Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>About Us</h3>
-                <p>Allwin Infotech provides innovative software solutions for business and personal use.</p>
+        <div class="footer-wrapper">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>About Allwin Infotech</h4>
+                    <p>We are dedicated to creating innovative software solutions that empower businesses and individuals to achieve their goals efficiently and effectively.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="#products">Our Products</a>
+                    <a href="#features">Why Choose Us</a>
+                    <a href="http://www.allwininfotech.in" target="_blank">Website</a>
+                    <a href="mailto:support@allwininfotech.in">Contact Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Information</h4>
+                    <p>📧 Email: support@allwininfotech.in</p>
+                    <p>🌐 Website: www.allwininfotech.in</p>
+                    <p>💼 Professional Software Solutions</p>
+                </div>
             </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>📧 Email: <a href="mailto:support@allwininfotech.in">support@allwininfotech.in</a></p>
-                <p>🌐 Website: <a href="https://www.allwininfotech.in" target="_blank">www.allwininfotech.in</a></p>
-            </div>
-            <div class="footer-section">
-                <h3>Products</h3>
-                <p><a href="#survey">Survey Management System</a></p>
-                <p><a href="#arranger">A4 Photo Arranger</a></p>
-                <p><a href="#stamper">Photo Date Stamper</a></p>
+            <div class="footer-bottom">
+                <p>© 2025 Allwin Infotech. All rights reserved. | Crafted with ❤️ for Innovation and Excellence</p>
             </div>
         </div>
     </footer>
 
-    <!-- Hidden iframe for background download -->
-    <iframe id="dlFrame" style="display:none;"></iframe>
-
-    <!-- JavaScript -->	
     <script>
-        function startDownload() {
-            // Start download in background using hidden iframe
-            document.getElementById('dlFrame').src = 
-                'https://drive.google.com/file/d/1I1YVrrhDgIDTnPRe3AaatKKbJp6FSjb3/view?usp=sharing';
-        }
+        // Smooth scroll for links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('scroll-appear');
+                }
+            });
+        });
+
+        document.querySelectorAll('.product-card').forEach(card => {
+            observer.observe(card);
+        });
     </script>
 </body>
 </html>
