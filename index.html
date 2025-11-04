@@ -310,7 +310,7 @@
     </header>
 
     <div class="container">
-        <h2>Our Products</h2>
+        <h2>Professional Software for Every Need</h2>
 
         <div class="products-grid">
             <!-- Product 1: Survey Management System -->
@@ -354,8 +354,8 @@
                     </ul>
                 </div>
                 <div class="product-footer">
-                    <div class="status-badge badge-available">Available Now</div>
-                    <a href="https://drive.google.com/uc?export=download&id=1b7hkUY7GiOnBe9ax2Od6GvfTIFqRK4U2" class="download-btn">Download (50 MB)</a>
+                    <div class="status-badge badge-available">Available</div>
+                    <button onclick="startDownload()" class="download-btn">⬇️ Download Now</button>
                 </div>
             </div>
 
@@ -403,5 +403,17 @@
             </div>
         </div>
     </footer>
+
+    <!-- Hidden iframe for background download -->
+    <iframe id="dlFrame" style="display:none;"></iframe>
+
+    <!-- JavaScript -->	
+    <script>
+        function startDownload() {
+            // Start download in background using hidden iframe
+            document.getElementById('dlFrame').src = 
+                'https://drive.google.com/file/d/1I1YVrrhDgIDTnPRe3AaatKKbJp6FSjb3/view?usp=sharing';
+        }
+    </script>
 </body>
 </html>
