@@ -50,6 +50,17 @@ h1,h2,h3{font-family:Manrope,sans-serif}.hero h1{font-size:clamp(42px,6vw,68px);
 footer{background:#0c1321;color:#aeb8ca;padding:26px 0}.foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}.foot strong{font:700 13px Manrope;color:white}.foot small{display:block;font-size:11px}.footlinks{display:flex;gap:18px}.foot a{font-size:11px;color:#aeb8ca;text-decoration:none}.foot a:hover{color:white}
 @media(max-width:760px){.products{grid-template-columns:1fr}.aboutbox{grid-template-columns:1fr}.values{grid-template-columns:1fr}.navlinks{gap:15px}}
 @media(max-width:560px){.wrap{width:calc(100% - 30px)}nav{min-height:66px}.navlinks a:not(.contactlink){display:none}.hero{padding:76px 0}.hero h1{letter-spacing:-1.6px}.section{padding:64px 0}.card{padding:21px}.desc{min-height:0}.ctainner{align-items:flex-start;flex-direction:column}.foot{align-items:flex-start;flex-direction:column}}
+/* Readability refinement: use stronger weights throughout the homepage */
+body{font-weight:500;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.brand strong{font-weight:800}.navlinks a{font-weight:700}
+.hero p{font-weight:600;color:#d8e0ef}
+.heading p,.aboutbox p,.cta p{font-weight:600}
+.card h3{font-weight:800}
+.desc{font-size:14px;font-weight:600;color:#35445c;line-height:1.8}
+.feature{font-size:13px;font-weight:700;color:#334158}
+.kicker{font-weight:800}.btn,.download,.disabled{font-weight:800}
+.price{font-weight:800}
+.foot small,.foot a{font-weight:600}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
