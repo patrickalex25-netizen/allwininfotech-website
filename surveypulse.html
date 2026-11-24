@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111b32">
+<meta name="description" content="SurveyPulse helps insurance surveyors keep track of survey allocations with SMS monitoring, acknowledgement tracking and repeat reminders.">
+<title>SurveyPulse | Never Miss a Survey Allocation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#172238;--muted:#65738a;--blue:#3458d4;--navy:#111b32;--line:#e6ebf4;--bg:#f6f8fc}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:"DM Sans",sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
+.wrap{width:min(1120px,calc(100% - 40px));margin:auto}h1,h2,h3{font-family:Manrope,sans-serif}
+header{background:#fff;border-bottom:1px solid var(--line)}nav{min-height:72px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.brand{display:flex;gap:11px;align-items:center;text-decoration:none;color:var(--ink)}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,#5274f0,#263fae);display:grid;place-items:center;color:#fff;font:800 16px Manrope}
+.brand strong{display:block;font:800 16px Manrope}.brand small{font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted)}
+.back{font-size:13px;font-weight:700;text-decoration:none;color:var(--blue)}
+.hero{color:white;padding:84px 0 78px;background:radial-gradient(circle at 85% 10%,#6e8cff55,transparent 27%),linear-gradient(120deg,#101827,#1b315e 65%,#2c478e)}
+.eyebrow{display:inline-block;padding:7px 13px;border:1px solid #ffffff40;border-radius:30px;color:#dce6ff;background:#ffffff10;font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+.hero h1{font-size:clamp(40px,6vw,64px);line-height:1.1;letter-spacing:-2px;margin:23px 0 16px;max-width:800px}.hero h1 span{color:#a9bcff}
+.hero p{max-width:690px;color:#d0d9e9;font-size:17px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:11px;text-decoration:none;font-size:13px;font-weight:800;transition:.2s}.btn:hover{transform:translateY(-2px)}
+.primary{background:#fff;color:#172238}.secondary{border:1px solid #ffffff55;color:#fff;background:#ffffff0d}
+.section{padding:72px 0}.heading{text-align:center;max-width:700px;margin:0 auto 36px}.kicker{color:var(--blue);font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase}
+.heading h2{font-size:clamp(28px,4vw,39px);letter-spacing:-1px;margin:8px 0}.heading p{font-size:14px;color:var(--muted)}
+.featuregrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.feature{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 7px 24px #1a2b5008}
+.featureicon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(145deg,#e6ecff,#d2ddff);font-size:24px;margin-bottom:15px}
+.feature h3{font-size:17px;margin-bottom:7px}.feature p{font-size:13px;color:#536177;line-height:1.75}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.step{padding:22px;background:#eaf0ff;border:1px solid #dce5ff;border-radius:16px}.number{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:#fff;font-weight:800;font-size:13px;margin-bottom:12px}.step h3{font-size:15px;margin-bottom:6px}.step p{font-size:12px;color:#59677d}
+.offer{padding:38px;border-radius:22px;background:linear-gradient(120deg,#17213a,#294783);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:25px}
+.offer .kicker{color:#a9bcff}.offer h2{font-size:clamp(26px,4vw,36px);margin:7px 0}.offer p{color:#d0d9e9;font-size:13px}.price{font:800 36px Manrope;white-space:nowrap}.price small{display:block;font:500 11px "DM Sans";color:#d0d9e9;text-align:right}
+.note{margin-top:18px;color:#7a879a;font-size:11px;text-align:center}
+footer{background:#0c1321;color:#aeb8ca;padding:25px 0}.foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.foot a{color:#c8d2e4;text-decoration:none;font-size:12px}
+@media(max-width:700px){.featuregrid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.offer{align-items:flex-start;flex-direction:column;padding:27px}.price small{text-align:left}.hero{padding:68px 0}.hero h1{letter-spacing:-1.3px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="brand" href="index.html"><span class="logo">AI</span><span><strong>Allwin InfoTech</strong><small>Smart Solutions</small></span></a>
+<a class="back" href="index.html">← Back to all products</a>
+</nav></div></header>
+<main>
+<section class="hero"><div class="wrap">
+<div class="eyebrow">Made for insurance surveyors</div>
+<h1>Never miss a<br><span>survey allocation.</span></h1>
+<p>SurveyPulse helps you keep track of incoming survey allocations, acknowledge the jobs you have received and stay reminded about pending allocations — all from your Android phone.</p>
+<div class="actions"><a class="btn primary" href="mailto:allwininfotech25@gmail.com?subject=SurveyPulse%20Enquiry">Enquire about SurveyPulse</a><a class="btn secondary" href="#features">Explore features ↓</a></div>
+</div></section>
+
+<section class="section" id="features"><div class="wrap">
+<div class="heading"><div class="kicker">Stay on top of every allocation</div><h2>Your allocation assistant</h2><p>Keep important allocation messages visible and follow up on pending jobs without relying on memory alone.</p></div>
+<div class="featuregrid">
+<article class="feature"><div class="featureicon">📩</div><h3>Automatic SMS monitoring</h3><p>SurveyPulse monitors supported insurer allocation SMS messages and identifies incoming survey job offers, helping bring them into one convenient allocation list.</p></article>
+<article class="feature"><div class="featureicon">🔔</div><h3>Repeating reminders</h3><p>Receive repeat alerts for pending, unacknowledged allocations. Set the reminder interval to suit your working routine.</p></article>
+<article class="feature"><div class="featureicon">☑️</div><h3>One-tap acknowledgement</h3><p>Mark an allocation as acknowledged when you have attended to it. Acknowledged allocations are excluded from pending reminders.</p></article>
+<article class="feature"><div class="featureicon">🗂️</div><h3>Allocation history</h3><p>View saved allocation records and check their acknowledgement status instead of searching through old messages.</p></article>
+<article class="feature"><div class="featureicon">📊</div><h3>At-a-glance dashboard</h3><p>See pending allocations, today's allocations and acknowledged jobs from the dashboard.</p></article>
+<article class="feature"><div class="featureicon">📱</div><h3>Designed for Android</h3><p>Keep allocation tracking and reminders close at hand on your Android phone.</p></article>
+</div>
+</div></section>
+
+<section class="section" style="padding-top:0"><div class="wrap">
+<div class="heading"><div class="kicker">Simple workflow</div><h2>From message to follow-up</h2><p>SurveyPulse helps make allocation follow-up a more organized routine.</p></div>
+<div class="steps">
+<div class="step"><div class="number">1</div><h3>Receive an allocation</h3><p>A supported insurer's allocation SMS is detected and added to your allocation list.</p></div>
+<div class="step"><div class="number">2</div><h3>Review and acknowledge</h3><p>Check the allocation details and acknowledge the job when you have dealt with it.</p></div>
+<div class="step"><div class="number">3</div><h3>Stay reminded</h3><p>Pending allocations continue to trigger reminders at your configured interval until acknowledged.</p></div>
+</div>
+</div></section>
+
+<section class="section" style="padding-top:0"><div class="wrap">
+<div class="offer">
+<div><div class="kicker">Launch offer</div><h2>Get SurveyPulse at the introductory price</h2><p>One-time purchase · Lifetime licence · One device activation</p><p style="margin-top:7px">Online activation and periodic online licence validation required.</p></div>
+<div><div class="price">₹1,999<small>Introductory one-time price</small></div><a class="btn primary" style="margin-top:17px;width:100%" href="mailto:allwininfotech25@gmail.com?subject=SurveyPulse%20Purchase%20Enquiry">Enquire / Purchase</a></div>
+</div>
+<p class="note">SurveyPulse is an allocation tracking and reminder tool. Message detection depends on supported message formats and Android notification/SMS permissions. Product features and compatibility may vary by device.</p>
+</div></section>
+</main>
+<footer><div class="wrap foot"><span>© 2026 Allwin InfoTech. All rights reserved.</span><a href="mailto:allwininfotech25@gmail.com">allwininfotech25@gmail.com</a></div></footer>
+</body></html>
