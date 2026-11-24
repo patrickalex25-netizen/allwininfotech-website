@@ -1,861 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allwin InfoTech - Cherry Collection</title>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WB59F9HL');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111b32">
+<meta name="description" content="Practical software solutions from Allwin InfoTech.">
+<title>Allwin InfoTech | Smart Software Solutions</title>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WB59F9HL');</script>
 <!-- End Google Tag Manager -->
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', 'Segoe UI', sans-serif;
-            background: #fff5f7;
-            color: #2d2d2d;
-            overflow-x: hidden;
-        }
-
-        /* Background Decoration */
-        .background-pattern {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.03;
-        }
-
-        .background-pattern svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #c41e3a 0%, #e63946 50%, #d62828 100%);
-            color: white;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 8px 32px rgba(196, 30, 58, 0.25);
-        }
-
-        .header-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .logo-text h2 {
-            font-size: 26px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .logo-text p {
-            font-size: 11px;
-            opacity: 0.9;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .header-contact {
-            display: flex;
-            gap: 25px;
-            align-items: center;
-        }
-
-        .contact-link {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 8px 16px;
-            border-radius: 20px;
-        }
-
-        .contact-link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #c41e3a 0%, #e63946 50%, #d62828 100%);
-            color: white;
-            padding: 120px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -5%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(20px); }
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.25);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 25px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .hero h1 {
-            font-size: 58px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.1;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 10px;
-            opacity: 0.95;
-        }
-
-        .hero-subtitle {
-            font-size: 15px;
-            opacity: 0.85;
-            font-style: italic;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        /* Section Header */
-        .section-header {
-            text-align: center;
-            margin-bottom: 70px;
-        }
-
-        .section-header h2 {
-            font-size: 48px;
-            font-weight: 800;
-            color: #c41e3a;
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, #c41e3a, #e63946);
-            border-radius: 2px;
-        }
-
-        .section-header p {
-            font-size: 16px;
-            color: #666;
-            max-width: 600px;
-            margin: 30px auto 0;
-            line-height: 1.6;
-        }
-
-        /* Products Grid */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(196, 30, 58, 0.12);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            animation: slideInUp 0.6s ease-out forwards;
-            opacity: 0;
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .product-card:nth-child(1) { animation-delay: 0.1s; }
-        .product-card:nth-child(2) { animation-delay: 0.2s; }
-        .product-card:nth-child(3) { animation-delay: 0.3s; }
-
-        .product-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 16px 40px rgba(196, 30, 58, 0.2);
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #c41e3a, #e63946);
-            z-index: 1;
-        }
-
-        .product-top {
-            background: linear-gradient(135deg, #fff5f7, #ffe8ec);
-            padding: 45px 35px 35px;
-            text-align: center;
-            position: relative;
-        }
-
-        .product-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-            display: inline-block;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .product-card:nth-child(1) .product-icon { animation-delay: 0s; }
-        .product-card:nth-child(2) .product-icon { animation-delay: 0.3s; }
-        .product-card:nth-child(3) .product-icon { animation-delay: 0.6s; }
-
-        .product-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #c41e3a;
-            margin-bottom: 12px;
-        }
-
-        .product-badge {
-            display: inline-block;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .badge-available {
-            background: linear-gradient(135deg, #c41e3a, #e63946);
-            color: white;
-            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
-        }
-
-        .badge-coming {
-            background: #fff3cd;
-            color: #856404;
-            border: 2px solid #ffc107;
-        }
-
-        .product-content {
-            padding: 35px;
-        }
-
-        .product-description {
-            font-size: 15px;
-            color: #555;
-            line-height: 1.7;
-            margin-bottom: 25px;
-            min-height: 70px;
-        }
-
-        .product-features {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 30px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 14px;
-            color: #666;
-        }
-
-        .feature-icon {
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, #c41e3a, #e63946);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 12px;
-            flex-shrink: 0;
-        }
-
-        .product-btn {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 10px;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-download {
-            background: linear-gradient(135deg, #c41e3a, #e63946);
-            color: white;
-            box-shadow: 0 6px 20px rgba(196, 30, 58, 0.3);
-        }
-
-        .btn-download:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.4);
-        }
-
-        .btn-download:active {
-            transform: translateY(-1px);
-        }
-
-        .btn-coming {
-            background: #f5f5f5;
-            color: #999;
-            border: 2px solid #e0e0e0;
-            cursor: not-allowed;
-        }
-
-        .btn-coming:hover {
-            transform: none;
-            box-shadow: none;
-        }
-
-        /* Why Choose Section */
-        .why-choose {
-            background: linear-gradient(135deg, #fff5f7 0%, #ffe8ec 100%);
-            padding: 80px 20px;
-            border-radius: 20px;
-            margin: 80px 0;
-        }
-
-        .features-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 50px;
-        }
-
-        .why-feature {
-            text-align: center;
-        }
-
-        .why-feature-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-
-        .why-feature h3 {
-            font-size: 20px;
-            color: #c41e3a;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .why-feature p {
-            color: #666;
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #c41e3a 0%, #e63946 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            border-radius: 20px;
-            margin: 80px 0;
-        }
-
-        .cta-title {
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-
-        .cta-text {
-            font-size: 16px;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Footer */
-        footer {
-            background: #2d2d2d;
-            color: white;
-            padding: 60px 20px;
-        }
-
-        .footer-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 40px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-col h4 {
-            color: #e63946;
-            font-size: 16px;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .footer-col p {
-            font-size: 14px;
-            line-height: 1.8;
-            color: #bbb;
-        }
-
-        .footer-col a {
-            color: #e63946;
-            text-decoration: none;
-            display: block;
-            font-size: 14px;
-            margin-bottom: 10px;
-            transition: color 0.3s;
-        }
-
-        .footer-col a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            font-size: 13px;
-            color: #888;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 38px;
-            }
-
-            .section-header h2 {
-                font-size: 32px;
-            }
-
-            .header-wrapper {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .header-contact {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .cta-title {
-                font-size: 28px;
-            }
-
-            .logo-text h2 {
-                font-size: 22px;
-            }
-        }
-
-        /* Scroll Animation */
-        .scroll-appear {
-            opacity: 0;
-            animation: fadeInScroll 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeInScroll {
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#172238;--muted:#68758a;--blue:#3458d4;--line:#e7ebf2;--bg:#f6f8fc;--navy:#111b32}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{font-family:"DM Sans",sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+.wrap{width:min(1140px,calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:10;background:#ffffffed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,#5274f0,#263fae);display:grid;place-items:center;color:white;font:800 16px Manrope;box-shadow:0 7px 18px #3458d433}
+.brand strong{font:800 17px Manrope;display:block}.brand small{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase}
+.navlinks{display:flex;align-items:center;gap:28px}.navlinks a{font-size:13px;font-weight:700;text-decoration:none;color:#59667b}.navlinks a:hover{color:var(--blue)}
+.navlinks .contactlink{background:var(--navy);color:white;padding:10px 17px;border-radius:30px}
+.hero{position:relative;overflow:hidden;color:white;padding:100px 0 94px;background:radial-gradient(circle at 85% 15%,#5979db66,transparent 27%),radial-gradient(circle at 8% 100%,#3ed0ad26,transparent 32%),linear-gradient(120deg,#101827,#1b315e 65%,#2c478e)}
+.hero:after{content:"";position:absolute;width:440px;height:440px;border:1px solid #ffffff20;border-radius:50%;right:-120px;top:-220px;box-shadow:0 0 0 48px #ffffff08,0 0 0 96px #ffffff06}
+.hero .wrap{position:relative;z-index:1}.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 13px;border:1px solid #ffffff35;border-radius:30px;color:#dce6ff;background:#ffffff0d;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.dot{width:7px;height:7px;border-radius:50%;background:#6ee7c2;box-shadow:0 0 0 5px #6ee7c222}
+h1,h2,h3{font-family:Manrope,sans-serif}.hero h1{font-size:clamp(42px,6vw,68px);line-height:1.08;letter-spacing:-2.5px;margin:25px 0 18px}.hero h1 span{color:#9fb6ff}
+.hero p{max-width:650px;color:#cbd5e8;font-size:16px;line-height:1.8}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:11px;text-decoration:none;font-size:13px;font-weight:700;transition:.2s}
+.btn:hover{transform:translateY(-2px)}.primary{background:white;color:#172238;box-shadow:0 8px 22px #0002}.outline{color:white;border:1px solid #ffffff55;background:#ffffff0d}
+.section{padding:82px 0}.heading{text-align:center;max-width:680px;margin:0 auto 40px}.kicker{color:var(--blue);font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase}
+.heading h2{font-size:clamp(30px,4vw,42px);letter-spacing:-1.3px;margin:9px 0}.heading p{color:var(--muted);font-size:14px}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.card{background:white;border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 6px 24px #19284b08;display:flex;flex-direction:column;transition:.25s}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 45px #19284b13;border-color:#d5defb}
+.cardtop{display:flex;align-items:flex-start;justify-content:space-between}.iconbox{width:52px;height:52px;border-radius:15px;background:#edf1ff;display:grid;place-items:center;font-size:25px}
+.status{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:6px 10px;border-radius:20px;background:#e4f8ef;color:#177654}.soon{background:#fff3d9;color:#946316}
+.card h3{font-size:20px;margin:19px 0 8px;letter-spacing:-.4px}.desc{font-size:13px;color:var(--muted);line-height:1.75;min-height:68px}
+.features{display:grid;gap:9px;margin:18px 0 22px}.feature{font-size:12px;color:#59667b;display:flex;gap:9px;align-items:center}.tick{width:18px;height:18px;flex:0 0 18px;border-radius:50%;background:#e4f8ef;color:#177654;display:grid;place-items:center;font-size:11px;font-weight:800}
+.bottom{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}.price{font:800 19px Manrope}.price small{display:block;font:500 10px "DM Sans";color:#8993a4}
+.download{background:var(--blue);color:white;padding:11px 15px;border-radius:9px;text-decoration:none;font-size:12px;font-weight:800}.download:hover{background:#2443b4}.disabled{background:#eef1f5;color:#8791a1;padding:11px 15px;border-radius:9px;font-size:12px;font-weight:800}
+.about{padding:0 0 80px}.aboutbox{display:grid;grid-template-columns:1fr 2fr;gap:35px;align-items:center;background:#eaf0ff;border:1px solid #dce5ff;border-radius:20px;padding:34px}
+.aboutbox h2{font-size:25px;line-height:1.25;margin-top:8px}.aboutbox p{color:var(--muted);font-size:13px;margin-top:8px}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.values strong{display:block;font:700 13px Manrope;margin-bottom:5px}.values span{font-size:11px;color:var(--muted)}
+.cta{background:linear-gradient(120deg,#17213a,#294783);color:white;padding:60px 0}.ctainner{display:flex;justify-content:space-between;align-items:center;gap:25px}.cta h2{font-size:clamp(27px,4vw,37px);letter-spacing:-1px}.cta p{color:#c4cee1;font-size:14px;margin-top:7px}.cta .btn{background:white;color:#172238;white-space:nowrap}
+footer{background:#0c1321;color:#aeb8ca;padding:26px 0}.foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}.foot strong{font:700 13px Manrope;color:white}.foot small{display:block;font-size:11px}.footlinks{display:flex;gap:18px}.foot a{font-size:11px;color:#aeb8ca;text-decoration:none}.foot a:hover{color:white}
+@media(max-width:760px){.products{grid-template-columns:1fr}.aboutbox{grid-template-columns:1fr}.values{grid-template-columns:1fr}.navlinks{gap:15px}}
+@media(max-width:560px){.wrap{width:calc(100% - 30px)}nav{min-height:66px}.navlinks a:not(.contactlink){display:none}.hero{padding:76px 0}.hero h1{letter-spacing:-1.6px}.section{padding:64px 0}.card{padding:21px}.desc{min-height:0}.ctainner{align-items:flex-start;flex-direction:column}.foot{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WB59F9HL"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WB59F9HL" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-    <!-- Background Pattern -->
-    <div class="background-pattern">
-        <svg viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="200" cy="200" r="150" fill="currentColor"/>
-            <circle cx="1000" cy="1000" r="200" fill="currentColor"/>
-            <path d="M 0 600 Q 300 400 600 600 T 1200 600" stroke="currentColor" fill="none"/>
-        </svg>
-    </div>
-
-    <!-- Header -->
-    <header>
-        <div class="header-wrapper">
-            <div class="logo-section">
-                <div class="logo-icon">💼</div>
-                <div class="logo-text">
-                    <h2>Allwin InfoTech</h2>
-                    <p>Smart Solutions</p>
-                </div>
-            </div>
-            <div class="header-contact">
-                <a href="mailto:allwininfotech25@gmail.com" class="contact-link">
-                    📧 allwininfotech25@gmail.com
-                </a>
-                <a href="http://www.allwininfotech.in" target="_blank" class="contact-link">
-                    🌐 www.allwininfotech.in
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">🎯 Premium Software Collection</div>
-            <h1>Elevate Your Productivity</h1>
-            <p>Discover our carefully crafted software solutions designed to streamline your workflow</p>
-            <p class="hero-subtitle">From surveys to photo management - we have the perfect tool for you</p>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="container">
-        <div class="section-header">
-            <h2>Our Premium Products</h2>
-            <p>Innovative solutions engineered with precision and designed for excellence. Choose the tools that work best for your needs.</p>
-        </div>
-
-        <div class="products-grid">
-            <!-- Product 1: Survey Management System -->
-            <div class="product-card">
-                <div class="product-top">
-                    <div class="product-icon">📋</div>
-                    <h3 class="product-title">Survey Management System</h3>
-                    <span class="product-badge badge-coming">Coming Soon</span>
-                </div>
-                <div class="product-content">
-                    <p class="product-description">
-                        Comprehensive platform for creating, distributing, and analyzing surveys with real-time analytics and advanced insights.
-                    </p>
-                    <div class="product-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">✓</div>
-                            <span>Advanced Survey Builder</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">✓</div>
-                            <span>Real-time Analytics</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">✓</div>
-                            <span>Multi-channel Distribution</span>
-                        </div>
-                    </div>
-                    <button class="product-btn btn-coming" disabled>Coming Soon</button>
-                </div>
-            </div>
-
-            <!-- Product 2: A4 Photo Arranger -->
-            <div class="product-card">
-                <div class="product-top">
-                    <div class="product-icon">🖼️</div>
-                    <h3 class="product-title">A4 Photo Arranger</h3>
-                    <span class="product-badge badge-available">Available Now</span>
-                </div>
-                <div class="product-content">
-                    <p class="product-description">
-                        Professional photo arrangement tool for creating stunning A4-sized collages with intuitive controls and templates.
-                    </p>
-                    <div class="product-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">✓</div>
-                            <span>Drag & Drop Interface</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">✓</div>
-                            <span>Premium Templates</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">✓</div>
-                            <span>High-Quality Export</span>
-                        </div>
-                    </div>
-                    <div style="margin: 15px 0; text-align: center; font-size: 18px; font-weight: 700; color: #c41e3a;">
-                        ₹ 1,499.00
-                    </div>
-                    <a href="https://drive.google.com/file/d/14XBz6GuBv0l6pggsf4fGPcpHGSmp3ODH/view?usp=sharing" target="_blank" class="product-btn btn-download">⬇️ Download Now</a>
-                </div>
-            </div>
-
-            <!-- Product 3: Photo Date Stamper -->
-            <div class="product-card">
-                <div class="product-top">
-                    <div class="product-icon">📸</div>
-                    <h3 class="product-title">Photo Date Stamper</h3>
-                    <span class="product-badge badge-available">Available Now</span>
-                </div>
-                <div class="product-content">
-                    <p class="product-description">
-                        Intelligent utility to add date stamps to photos with customizable formats, positions, and style options.
-                    </p>
-                    <div class="product-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">✓</div>
-                            <span>Batch Processing</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">✓</div>
-                            <span>Custom Date Formats</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">✓</div>
-                            <span>Style Customization</span>
-                        </div>
-                    </div>
-                    <div style="margin: 15px 0; text-align: center; font-size: 18px; font-weight: 700; color: #c41e3a;">
-                        ₹ 999.00
-                    </div>
-                    <a href="https://drive.google.com/file/d/1Je1Liu9zr5Kgs1s3drsb4Y1v3xzqOXGj/view?usp=sharing" target="_blank" class="product-btn btn-download">⬇️ Download Now</a>
-                </div>
-            </div>
-
-            <!-- Product 4: Photo Resizer -->
-            <div class="product-card">
-                <div class="product-top">
-                    <div class="product-icon">🔄</div>
-                    <h3 class="product-title">Photo Resizer</h3>
-                    <span class="product-badge badge-available">Available Now</span>
-                </div>
-                <div class="product-content">
-                    <p class="product-description">
-                        Fast and efficient batch image resizing tool with aspect ratio preservation, folder memory, and support for multiple formats.
-                    </p>
-                    <div class="product-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">✓</div>
-                            <span>Batch Processing</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">✓</div>
-                            <span>Aspect Ratio Preservation</span>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">✓</div>
-                            <span>Multiple Format Support</span>
-                        </div>
-                    </div>
-                    <div style="margin: 15px 0; text-align: center; font-size: 18px; font-weight: 700; color: #c41e3a;">
-                        ₹ 499.00
-                    </div>
-                    <a href="https://drive.google.com/file/d/1WOP2BEQccUYnQB0Oia4sD2P0utUYuHHG/view?usp=sharing" target="_blank" class="product-btn btn-download">⬇️ Download Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Section -->
-    <section class="why-choose">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose Us</h2>
-                <p>We're committed to delivering the best software experience</p>
-            </div>
-            <div class="features-container">
-                <div class="why-feature">
-                    <div class="why-feature-icon">⚡</div>
-                    <h3>Lightning Fast</h3>
-                    <p>Optimized performance that delivers results instantly without compromising on quality or stability.</p>
-                </div>
-                <div class="why-feature">
-                    <div class="why-feature-icon">🛡️</div>
-                    <h3>Secure & Reliable</h3>
-                    <p>Enterprise-grade security ensures your data is protected with the highest standards of privacy.</p>
-                </div>
-                <div class="why-feature">
-                    <div class="why-feature-icon">👥</div>
-                    <h3>Expert Support</h3>
-                    <p>Dedicated support team ready to help you maximize the value of our software solutions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="container">
-        <div class="cta-section">
-            <h2 class="cta-title">Ready to Get Started?</h2>
-            <p class="cta-text">Download A4 Photo Arranger today and experience professional-grade photo management. Other products coming very soon!</p>
-            <a href="https://drive.google.com/file/d/1I1YVrrhDgIDTnPRe3AaatKKbJp6FSjb3/view?usp=sharing" target="_blank" class="product-btn btn-download" style="width: auto; display: inline-block; padding: 16px 40px;">🚀 Download Now</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-wrapper">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>About Allwin Infotech</h4>
-                    <p>We are dedicated to creating innovative software solutions that empower businesses and individuals to achieve their goals efficiently and effectively.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <a href="#products">Our Products</a>
-                    <a href="#features">Why Choose Us</a>
-                    <a href="http://www.allwininfotech.in" target="_blank">Website</a>
-                    <a href="mailto:support@allwininfotech.in">Contact Us</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact Information</h4>
-                    <p>📧 Email: allwininfotech25@gmail.com</p>
-                    <p>🌐 Website: www.allwininfotech.in</p>
-                    <p>💼 Professional Software Solutions</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2025 Allwin Infotech. All rights reserved. | Crafted with ❤️ for Innovation and Excellence</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scroll for links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Intersection Observer for scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('scroll-appear');
-                }
-            });
-        });
-
-        document.querySelectorAll('.product-card').forEach(card => {
-            observer.observe(card);
-        });
-    </script>
-</body>
-</html>
+<header><div class="wrap"><nav>
+<a class="brand" href="#" aria-label="Allwin InfoTech home"><span class="logo">AI</span><span><strong>Allwin InfoTech</strong><small>Smart Solutions</small></span></a>
+<div class="navlinks"><a href="#products">Products</a><a href="#about">About</a><a class="contactlink" href="mailto:allwininfotech25@gmail.com">Get in touch</a></div>
+</nav></div></header>
+<main>
+<section class="hero"><div class="wrap">
+<div class="eyebrow"><span class="dot"></span> Independent software solutions</div>
+<h1>Useful software.<br><span>Made thoughtfully.</span></h1>
+<p>Practical tools designed to simplify everyday work. Explore our growing collection of focused software for survey management, document workflows and photo management.</p>
+<div class="actions"><a class="btn primary" href="#products">Explore our products&nbsp; →</a><a class="btn outline" href="mailto:allwininfotech25@gmail.com">Contact Allwin InfoTech</a></div>
+</div></section>
+<section class="section" id="products"><div class="wrap">
+<div class="heading"><div class="kicker">Our software</div><h2>Tools that get the work done</h2><p>Focused applications for insurance surveyors, document workflows and photo management, designed around practical everyday tasks.</p></div>
+<div class="products">
+<article class="card" style="border:2px solid #cbd7ff;background:linear-gradient(145deg,#fff 0%,#f4f7ff 100%)">
+<div class="cardtop"><div class="iconbox">📲</div><span class="status">Introductory offer</span></div>
+<h3>SurveyPulse</h3>
+<p class="desc">Professional Insurance Survey Allocation Manager — designed to help surveyors keep track of incoming allocations and timely follow-ups.</p>
+<div class="features">
+<div class="feature"><span class="tick">✓</span>Automatic Insurers' SMS allocation monitoring</div>
+<div class="feature"><span class="tick">✓</span>Allocation acknowledgement tracking</div>
+<div class="feature"><span class="tick">✓</span>Configurable repeating reminders</div>
+<div class="feature"><span class="tick">✓</span>Allocation history</div>
+</div>
+<div class="bottom">
+<div class="price">₹1,999<small>Introductory one-time price</small></div>
+<a class="download" href="mailto:allwininfotech25@gmail.com?subject=SurveyPulse%20Enquiry">Enquire now ↗</a>
+</div>
+</article>
+<article class="card"><div class="cardtop"><div class="iconbox">📋</div><span class="status soon">Coming soon</span></div><h3>Survey Management System</h3><p class="desc">A platform in development for creating, distributing and analyzing surveys, with tools for organizing responses and reviewing results.</p><div class="features"><div class="feature"><span class="tick">✓</span>Advanced survey builder</div><div class="feature"><span class="tick">✓</span>Results and analytics</div><div class="feature"><span class="tick">✓</span>Multi-channel distribution</div></div><div class="bottom"><div class="price"><small>Availability</small>In development</div><span class="disabled">Coming soon</span></div></article>
+<article class="card"><div class="cardtop"><div class="iconbox">🖼️</div><span class="status">Available now</span></div><h3>A4 Photo Arranger</h3><p class="desc">Arrange photographs on A4 pages with a convenient workflow for preparing clean, print-ready photo layouts.</p><div class="features"><div class="feature"><span class="tick">✓</span>Drag-and-drop interface</div><div class="feature"><span class="tick">✓</span>Ready-to-use layouts</div><div class="feature"><span class="tick">✓</span>High-quality export</div></div><div class="bottom"><div class="price">₹1,499<small>One-time price shown</small></div><a class="download" href="https://drive.google.com/file/d/14XBz6GuBv0l6pggsf4fGPcpHGSmp3ODH/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download ↗</a></div></article>
+<article class="card"><div class="cardtop"><div class="iconbox">📸</div><span class="status">Available now</span></div><h3>Photo Date Stamper</h3><p class="desc">Add date stamps to photographs with control over the date format, placement and visual style.</p><div class="features"><div class="feature"><span class="tick">✓</span>Batch photo processing</div><div class="feature"><span class="tick">✓</span>Custom date formats</div><div class="feature"><span class="tick">✓</span>Position and style options</div></div><div class="bottom"><div class="price">₹999<small>One-time price shown</small></div><a class="download" href="https://drive.google.com/file/d/1Je1Liu9zr5Kgs1s3drsb4Y1v3xzqOXGj/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download ↗</a></div></article>
+<article class="card"><div class="cardtop"><div class="iconbox">🔄</div><span class="status">Available now</span></div><h3>Photo Resizer</h3><p class="desc">Resize multiple images efficiently while retaining their proportions and supporting common image formats.</p><div class="features"><div class="feature"><span class="tick">✓</span>Batch image resizing</div><div class="feature"><span class="tick">✓</span>Aspect ratio preservation</div><div class="feature"><span class="tick">✓</span>Multiple format support</div></div><div class="bottom"><div class="price">₹499<small>One-time price shown</small></div><a class="download" href="https://drive.google.com/file/d/1WOP2BEQccUYnQB0Oia4sD2P0utUYuHHG/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download ↗</a></div></article>
+</div></div></section>
+<section class="about" id="about"><div class="wrap"><div class="aboutbox"><div><div class="kicker">Why Allwin InfoTech</div><h2>Software built around real work.</h2><p>We focus on useful features, clear workflows and dependable support.</p></div><div class="values"><div><strong>Practical by design</strong><span>Features focused on solving specific everyday tasks.</span></div><div><strong>Simple workflows</strong><span>Tools designed to be straightforward and approachable.</span></div><div><strong>Support that helps</strong><span>A direct point of contact when you need assistance.</span></div></div></div></div></section>
+<section class="cta"><div class="wrap ctainner"><div><h2>Looking for a practical software solution?</h2><p>Contact Allwin InfoTech for product information and support.</p></div><a class="btn" href="mailto:allwininfotech25@gmail.com">Email Allwin InfoTech ↗</a></div></section>
+</main>
+<footer><div class="wrap foot"><div><strong>Allwin InfoTech</strong><small>© 2026 Allwin InfoTech. All rights reserved.</small></div><div class="footlinks"><a href="#products">Products</a><a href="#about">About</a><a href="mailto:allwininfotech25@gmail.com">Contact</a><a href="https://www.allwininfotech.in" target="_blank" rel="noopener noreferrer">Website</a></div></div></footer>
+</body></html>
