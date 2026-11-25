@@ -1,0 +1,63 @@
+/* ALLWIN INFOTECH GLOBAL BRAND STYLES */
+
+:root {
+    --brand-blue: #3458d4;
+    --brand-navy: #111b32;
+    --brand-text: #172238;
+}
+
+/* Brand section */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    text-decoration: none;
+    color: var(--brand-text);
+}
+
+.logo {
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+    background: linear-gradient(145deg, #5274f0, #263fae);
+    display: grid;
+    place-items: center;
+    color: white;
+    font: 800 17px Manrope;
+}
+
+.brand strong {
+    display: block;
+    font: 800 18px Manrope;
+}
+
+.brand small {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #536177;
+    text-transform: uppercase;
+}
+
+/* Navigation links */
+.navlinks {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.navlinks a {
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #59667b;
+}
+
+.navlinks a:hover {
+    color: var(--blue);
+}
+
+:root {
+    --blue: #3458d4;
+}
