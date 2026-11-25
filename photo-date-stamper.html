@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111b32">
+<meta name="description" content="Add date stamps to photographs with control over date format, placement and visual style.">
+<title>Photo Date Stamper | Allwin InfoTech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#172238;--muted:#65738a;--blue:#3458d4;--navy:#111b32;--line:#e6ebf4;--bg:#f6f8fc}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:"DM Sans",sans-serif;font-weight:500;color:var(--ink);background:var(--bg);line-height:1.65}
+.wrap{width:min(1120px,calc(100% - 40px));margin:auto}h1,h2,h3{font-family:Manrope,sans-serif}
+header{background:#fff;border-bottom:1px solid var(--line)}nav{min-height:72px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.brand{display:flex;gap:11px;align-items:center;text-decoration:none;color:var(--ink)}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,#5274f0,#263fae);display:grid;place-items:center;color:#fff;font:800 16px Manrope}
+.brand strong{display:block;font:800 16px Manrope}.brand small{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#536177}
+.back{font-size:13px;font-weight:800;text-decoration:none;color:var(--blue)}
+.hero{color:white;padding:84px 0 78px;background:radial-gradient(circle at 85% 10%,#6e8cff55,transparent 27%),linear-gradient(120deg,#101827,#1b315e 65%,#2c478e)}
+.eyebrow{display:inline-block;padding:7px 13px;border:1px solid #ffffff40;border-radius:30px;color:#dce6ff;background:#ffffff10;font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+.hero h1{font-size:clamp(38px,6vw,62px);line-height:1.12;letter-spacing:-2px;margin:23px 0 16px;max-width:850px}.hero h1 span{color:#a9bcff}
+.hero p{max-width:740px;color:#e1e8f5;font-size:17px;font-weight:600;line-height:1.8}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:11px;text-decoration:none;font-size:13px;font-weight:800;transition:.2s}.btn:hover{transform:translateY(-2px)}
+.primary{background:#fff;color:#172238}.secondary{border:1px solid #ffffff55;color:#fff;background:#ffffff0d}
+.section{padding:72px 0}.heading{text-align:center;max-width:740px;margin:0 auto 36px}.kicker{color:var(--blue);font-size:11px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase}
+.heading h2{font-size:clamp(28px,4vw,39px);letter-spacing:-1px;margin:8px 0}.heading p{font-size:14px;font-weight:600;color:#4d5b72;line-height:1.75}
+.featuregrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.feature{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 7px 24px #1a2b5008}
+.featureicon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(145deg,#e6ecff,#d2ddff);font-size:24px;margin-bottom:15px}
+.feature h3{font-size:17px;font-weight:800;margin-bottom:7px}.feature p{font-size:13px;font-weight:600;color:#3f4d63;line-height:1.8}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.step{padding:22px;background:#eaf0ff;border:1px solid #dce5ff;border-radius:16px}
+.number{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--blue);color:#fff;font-weight:800;font-size:13px;margin-bottom:12px}
+.step h3{font-size:15px;font-weight:800;margin-bottom:6px}.step p{font-size:12px;font-weight:600;color:#46546b;line-height:1.75}
+.offer{padding:38px;border-radius:22px;background:linear-gradient(120deg,#17213a,#294783);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:25px}
+.offer .kicker{color:#a9bcff}.offer h2{font-size:clamp(26px,4vw,36px);margin:7px 0}.offer p{color:#e0e7f4;font-size:13px;font-weight:600;line-height:1.75}
+.price{font:800 36px Manrope;white-space:nowrap}.price small{display:block;font:700 11px "DM Sans";color:#e0e7f4;text-align:right}
+.note{margin-top:18px;color:#59677d;font-size:11px;font-weight:600;line-height:1.75;text-align:center}
+footer{background:#0c1321;color:#aeb8ca;padding:25px 0}.foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.foot a{color:#dbe3f0;text-decoration:none;font-size:12px;font-weight:700}
+@media(max-width:700px){.featuregrid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.offer{align-items:flex-start;flex-direction:column;padding:27px}.price small{text-align:left}.hero{padding:68px 0}.hero h1{letter-spacing:-1.3px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="brand" href="index.html"><span class="logo">AI</span><span><strong>Allwin InfoTech</strong><small>Smart Solutions</small></span></a>
+<a class="back" href="index.html">← Back to all products</a>
+</nav></div></header>
+<main>
+<section class="hero"><div class="wrap">
+<div class="eyebrow">Photo date stamping</div>
+<h1>Put the date on<br><span>your photographs.</span></h1>
+<p>Photo Date Stamper helps add date stamps to photographs, with options for batch processing and control over the date format, placement and visual style.</p>
+<div class="actions"><a class="btn primary" href="https://drive.google.com/file/d/1Je1Liu9zr5Kgs1s3drsb4Y1v3xzqOXGj/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download ↗</a><a class="btn secondary" href="#features">Explore features ↓</a></div>
+</div></section>
+<section class="section" id="features"><div class="wrap">
+<div class="heading"><div class="kicker">Product features</div><h2>Simple tools for everyday work.</h2><p>Add date stamps to photographs with control over date format, placement and visual style.</p></div>
+<div class="featuregrid">
+<article class="feature"><div class="featureicon">📸</div><h3>Batch photo processing</h3><p>Process multiple photographs in a batch instead of stamping them one by one.</p></article>
+<article class="feature"><div class="featureicon">📅</div><h3>Custom date formats</h3><p>Choose from supported date formats to display dates in the required style.</p></article>
+<article class="feature"><div class="featureicon">🎨</div><h3>Position and style options</h3><p>Control where the date appears and how the stamp looks.</p></article>
+</div></div></section>
+<section class="section" style="padding-top:0"><div class="wrap">
+<div class="heading"><div class="kicker">Simple workflow</div><h2>Get the result you need</h2><p>A straightforward workflow helps you complete the task without unnecessary steps.</p></div>
+<div class="steps"><div class="step"><div class="number">1</div><h3>Select photographs</h3><p>Choose the photographs that need date stamping.</p></div>
+<div class="step"><div class="number">2</div><h3>Set date appearance</h3><p>Choose the required date format, position and visual style.</p></div>
+<div class="step"><div class="number">3</div><h3>Process the batch</h3><p>Apply the selected date stamp to the photographs.</p></div></div>
+</div></section>
+<section class="section" style="padding-top:0"><div class="wrap">
+<div class="offer">
+<div><div class="kicker">Product information</div><h2>Photo Date Stamper</h2><p>One-time purchase · Please contact Allwin InfoTech for product assistance and compatibility information.</p></div>
+<div><div class="price">₹999<small>One-time price shown</small></div><a class="btn primary" style="margin-top:17px;width:100%" href="https://drive.google.com/file/d/1Je1Liu9zr5Kgs1s3drsb4Y1v3xzqOXGj/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download ↗</a></div>
+</div>
+<p class="note">Product details are based on the features currently listed by Allwin InfoTech. Please contact Allwin InfoTech if you need further product or compatibility information.</p>
+</div></section>
+</main>
+<footer><div class="wrap foot"><span>© 2026 Allwin InfoTech. All rights reserved.</span><a href="mailto:allwininfotech25@gmail.com">allwininfotech25@gmail.com</a></div></footer>
+</body></html>
