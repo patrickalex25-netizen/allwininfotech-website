@@ -57,6 +57,7 @@
 .navlinks a:hover {
     color: var(--blue);
 }
+.back{font-size:14px;font-weight:800;text-decoration:none;color:var(--blue)}
 
 :root {
     --blue: #3458d4;
